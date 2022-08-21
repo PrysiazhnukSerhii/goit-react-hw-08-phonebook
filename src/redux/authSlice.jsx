@@ -13,20 +13,31 @@ export const authApi = createApi({
         body: registerInform,
       }),
     }),
+    login: builder.mutation({
+      query: userInformation => {
+        console.log(userInformation);
+        return {
+          url: `/users/login`,
+          method: 'POST',
+          body: userInformation,
+        };
+      },
+    }),
     logOut: builder.mutation({
       query: token => ({
-        url: `/contacts/logout`,
+        url: `/users/logout`,
         method: 'POST',
-        header: token,
+        header: `Authorization: Bearer ${token}`,
       }),
     }),
   }),
 });
 
-export const { useSignUpUserMutation, useLogOutMutation } = authApi;
+export const { useSignUpUserMutation, useLoginMutation, useLogOutMutation } =
+  authApi;
 
 // Запрос на створення нового контакту робить
 
-//ferem@gmailcom
+//ferem@gmail.com
 // Serhii Prysiazhniuk
 // 26012010

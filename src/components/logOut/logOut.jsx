@@ -4,8 +4,10 @@ import { useSelector } from 'react-redux';
 
 export function LogOut() {
   const tocen = useSelector(state => state.userInfom.token);
+  const [logOut] = useLogOutMutation();
   const onClick = () => {
     console.log(tocen);
+    logOut(tocen);
   };
 
   return (
@@ -14,3 +16,5 @@ export function LogOut() {
     </Button>
   );
 }
+
+// не розлогінює пише треба залогінитись дічь якась

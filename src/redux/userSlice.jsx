@@ -29,6 +29,14 @@ export const userSlice = createSlice({
         state.isLoggedIn = true;
       }
     );
+    builder.addMatcher(
+      authApi.endpoints.login.matchFulfilled,
+      (state, { payload }) => {
+        state.token = payload.token;
+        state.user = payload.user;
+        state.isLoggedIn = true;
+      }
+    );
   },
 });
 
