@@ -1,20 +1,17 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Contacts } from '../contacts/contacts';
 import { Register } from '../register/register';
 import { Login } from '../login/login';
 import { NotFound } from '../notFound/notFound';
-import { Container, Nav } from './app.styled';
+import { Container } from './app.styled';
+
+import { AppBar } from '../appBar/appBar';
 
 export const App = () => {
   return (
     <Container>
       <h1>Міняйся або здохни сука!!!</h1>
-      <Nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/contacts">Contacts</NavLink>
-      </Nav>
+      <AppBar />
       <Routes>
         <Route path="/" element={<>заповнить</>} />
         <Route path="/register" element={<Register />} />
@@ -25,5 +22,6 @@ export const App = () => {
     </Container>
   );
 };
+
 
 // - оформити сторінку нот фаунд (взагалі це сторінка  чи кмопонент подумать, більшість всього сторінка)

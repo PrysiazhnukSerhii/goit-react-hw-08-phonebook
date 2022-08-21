@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const initializationUserApi = createApi({
-  reducerPath: 'initializationUserApi',
+export const authApi = createApi({
+  reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com/',
   }),
@@ -13,10 +13,17 @@ export const initializationUserApi = createApi({
         body: registerInform,
       }),
     }),
+    logOut: builder.mutation({
+      query: token => ({
+        url: `/contacts/logout`,
+        method: 'POST',
+        header: token,
+      }),
+    }),
   }),
 });
 
-export const { useSignUpUserMutation } = initializationUserApi;
+export const { useSignUpUserMutation, useLogOutMutation } = authApi;
 
 // Запрос на створення нового контакту робить
 

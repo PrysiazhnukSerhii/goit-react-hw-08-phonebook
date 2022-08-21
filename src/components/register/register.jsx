@@ -1,31 +1,22 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
-import { useSignUpUserMutation } from '../../redux/initializationUserSlice';
-import { addUserInform } from '../../redux/userSlice';
+import { useSignUpUserMutation } from '../../redux/authSlice';
 
 export function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [singUpUSer, { data }] = useSignUpUserMutation();
+  const [singUpUSer] = useSignUpUserMutation();
 
-  const datas = { user: { name: 'adsf', email: 'sdfa' }, token: '1234234' };
-
-  const dispatch = useDispatch();
-  const onSubmit = async e => {
+  const onSubmit = e => {
     e.preventDefault();
 
-    try {
-      // await singUpUSer({
-      //   name,
-      //   email,
-      //   password,
-      // });
-      console.log();
-      dispatch(addUserInform(datas));
-    } catch {}
+    singUpUSer({
+      name,
+      email,
+      password,
+    });
   };
 
   return (
@@ -40,6 +31,8 @@ export function Register() {
     </form>
   );
 }
+
+// зробити перенаправлення на другу сторінку
 
 // звязати лейбл з рядком
 // подивитись десь повинно бути щоб на кожний інпут не ставити слухач  а на форму зразу, якось до іменні повинно підвязуватись

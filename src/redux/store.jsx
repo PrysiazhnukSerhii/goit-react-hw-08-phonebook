@@ -1,18 +1,29 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { initializationUserApi } from './initializationUserSlice';
-import userSliceReducer from './userSlice';
+import { authApi } from './authSlice';
 import { persistStore } from 'redux-persist';
+import { persistedReducer } from './userSlice';
+import {
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
 export const store = configureStore({
   reducer: {
-    [initializationUserApi.reducerPath]: initializationUserApi.reducer,
-    userInfom: userSliceReducer,
+    [authApi.reducerPath]: authApi.reducer,
+    userInfom: persistedReducer,
   },
-  middleware: getDefaultMiddleware => [
-    ...getDefaultMiddleware(),
-    initializationUserApi.middleware,
-  ],
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
-console.log(store);
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);
+
+//зробіти пробний персістор для себе ще раз тільки по інструкції їхній
