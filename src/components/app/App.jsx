@@ -10,7 +10,6 @@ import { AppBar } from '../appBar/appBar';
 export const App = () => {
   return (
     <Container>
-      <h1>Міняйся або здохни сука!!!</h1>
       <AppBar />
       <Routes>
         <Route path="/" element={<>заповнить</>} />
@@ -22,6 +21,5 @@ export const App = () => {
     </Container>
   );
 };
-
 
 // - оформити сторінку нот фаунд (взагалі це сторінка  чи кмопонент подумать, більшість всього сторінка)

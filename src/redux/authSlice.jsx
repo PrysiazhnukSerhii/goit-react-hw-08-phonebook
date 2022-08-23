@@ -27,7 +27,7 @@ export const authApi = createApi({
       query: token => ({
         url: `/users/logout`,
         method: 'POST',
-        header: `Authorization: Bearer ${token}`,
+        header: `Authorization: "Bearer ${token}"`,
       }),
     }),
   }),
@@ -36,7 +36,7 @@ export const authApi = createApi({
 export const { useSignUpUserMutation, useLoginMutation, useLogOutMutation } =
   authApi;
 
-// Запрос на створення нового контакту робить
+// 32 минута 52 сек
 
 //ferem@gmail.com
 // Serhii Prysiazhniuk
