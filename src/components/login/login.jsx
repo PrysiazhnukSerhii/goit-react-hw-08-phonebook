@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLoginMutation } from '../../redux/authSlice';
+import { Container, Input, Label, ButtonStyled } from './login.styled';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -13,14 +14,24 @@ export function Login() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label>Email:</label>
-      <input tape="text" onChange={e => setEmail(e.target.value)}></input>
+    <Container onSubmit={onSubmit}>
+      <form>
+        <Label>Email:</Label>
+        <Input
+          onChange={e => setEmail(e.target.value)}
+          tape="email"
+          placeholder="Enter email"
+        ></Input>
 
-      <label>Password:</label>
-      <input tape="text" onChange={e => setPassword(e.target.value)}></input>
+        <Label>Password:</Label>
+        <Input
+          onChange={e => setPassword(e.target.value)}
+          tape="password"
+          placeholder="Password"
+        ></Input>
 
-      <button type="submit">Enter</button>
-    </form>
+        <ButtonStyled type="submit">Enter</ButtonStyled>
+      </form>
+    </Container>
   );
 }
