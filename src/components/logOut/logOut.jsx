@@ -3,7 +3,7 @@ import { useLogOutMutation } from '../../redux/authSlice';
 import { useSelector } from 'react-redux';
 
 export function LogOut() {
-  const tocen = useSelector(state => state.userInfom.token);
+  const tocen = useSelector(state => state.userInformation.token);
   const [logOut] = useLogOutMutation();
   const onClick = () => {
     console.log(tocen);

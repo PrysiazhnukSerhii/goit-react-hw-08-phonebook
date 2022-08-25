@@ -32,6 +32,8 @@ export function Login() {
 
         <ButtonStyled type="submit">Enter</ButtonStyled>
       </form>
+      <p>ferem@gmail.com</p>
+      <p>26012010</p>
     </Container>
   );
 }

@@ -8,7 +8,7 @@ export function Register() {
   const [password, setPassword] = useState('');
 
   const [singUpUSer] = useSignUpUserMutation();
-
+  console.log(useSignUpUserMutation());
   const onSubmit = e => {
     e.preventDefault();
 

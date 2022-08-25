@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authApi } from './authSlice';
 import { persistStore } from 'redux-persist';
+import { authApi } from './authSlice';
 import { persistedReducer } from './userSlice';
+import { contactsApi } from './contactsSlise';
 import {
   FLUSH,
   REHYDRATE,
@@ -14,7 +15,8 @@ import {
 export const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
-    userInfom: persistedReducer,
+    userInformation: persistedReducer,
+    [contactsApi.reducerPath]: contactsApi.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

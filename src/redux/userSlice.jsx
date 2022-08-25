@@ -6,7 +6,7 @@ import { authApi } from './authSlice';
 const initialState = {
   user: { name: '', email: '' },
   token: null,
-  isLoggedIn: null,
+  isLoggedIn: false,
 };
 
 export const userSlice = createSlice({
@@ -37,6 +37,14 @@ export const userSlice = createSlice({
         state.isLoggedIn = true;
       }
     );
+    builder.addMatcher(
+      authApi.endpoints.logOut.matchFulfilled,
+      (state, { payload }) => {
+        state.token = null;
+        state.user = null;
+        state.isLoggedIn = false;
+      }
+    );
   },
 });
 
@@ -49,9 +57,8 @@ export default userSlice.reducer;
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token'],
 };
-
+// whitelist: ['token']
 export const persistedReducer = persistReducer(
   persistConfig,
   userSlice.reducer
