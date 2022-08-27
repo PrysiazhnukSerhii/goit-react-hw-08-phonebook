@@ -10,9 +10,10 @@ import { AppBar } from '../appBar/appBar';
 export const App = () => {
   return (
     <Container>
+      <h1>Міняйся або здохни сука!!!</h1>
       <AppBar />
       <Routes>
-        <Route path="/" element={<>заповнить</>} />
+        {/* <Route path="/" element={<>заповнить</>} /> */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contacts" element={<Contacts />} />
@@ -21,5 +22,9 @@ export const App = () => {
     </Container>
   );
 };
+
+// зробити додатковий запит на отримання інформації про юзере, якщо немає токіна в локал то вертати на логін сторінку
+
+// можна створити один фаіл на стилі для форм
 
 // - оформити сторінку нот фаунд (взагалі це сторінка  чи кмопонент подумать, більшість всього сторінка)

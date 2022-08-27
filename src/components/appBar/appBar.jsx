@@ -1,5 +1,5 @@
 import { LogOut } from '../logOut/logOut';
-import { Nav, NavBox, StyledLink } from './appBar.styled';
+import { Nav, StyledLink, Container } from './appBar.styled';
 import { useSelector } from 'react-redux';
 
 // ------------------переписати показ силлок при вході і виході--------
@@ -11,19 +11,16 @@ export function AppBar() {
   return (
     <>
       <Nav>
-        <NavBox>
-          <StyledLink to="/">Home</StyledLink>
-        </NavBox>
         {isLoggedIn ? (
           <>
             <LogOut />
             <StyledLink to="/contacts">Contacts</StyledLink>
           </>
         ) : (
-          <>
+          <Container>
             <StyledLink to="/login">Login</StyledLink>
             <StyledLink to="/register">Register</StyledLink>
-          </>
+          </Container>
         )}
       </Nav>
     </>

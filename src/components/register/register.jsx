@@ -1,6 +1,6 @@
 import { useState } from 'react';
-
 import { useSignUpUserMutation } from '../../redux/authSlice';
+import { Input, Label, ButtonStyled, Container } from './register.styled';
 
 export function Register() {
   const [name, setName] = useState('');
@@ -20,15 +20,29 @@ export function Register() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label>Name:</label>
-      <input tape="text" onChange={e => setName(e.target.value)}></input>
-      <label>Email:</label>
-      <input tape="text" onChange={e => setEmail(e.target.value)}></input>
-      <label>Password:</label>
-      <input tape="text" onChange={e => setPassword(e.target.value)}></input>
-      <button type="submit">Submit </button>
-    </form>
+    <Container>
+      <form onSubmit={onSubmit}>
+        <Label>Name:</Label>
+        <Input
+          tape="text"
+          onChange={e => setName(e.target.value)}
+          placeholder="Name"
+        ></Input>
+        <Label>Email:</Label>
+        <Input
+          tape="text"
+          onChange={e => setEmail(e.target.value)}
+          placeholder="Email"
+        ></Input>
+        <Label>Password:</Label>
+        <Input
+          tape="text"
+          onChange={e => setPassword(e.target.value)}
+          placeholder="Password"
+        ></Input>
+        <ButtonStyled type="submit">Submit </ButtonStyled>
+      </form>
+    </Container>
   );
 }
 

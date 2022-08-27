@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import { useCreateContactMutation } from '../../../redux/contactsSlise';
-import { useGetContactsQuery } from '../../../redux/contactsSlise';
+import { ButtonStyled, Label, Input } from './createContactsFotm';
 
 export function CreateContactsForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  // let { data } = useGetContactsQuery();
-
-  // console.log(data);
   const [createContact] = useCreateContactMutation();
 
   const onSubmit = e => {
@@ -21,12 +18,12 @@ export function CreateContactsForm() {
 
   return (
     <form onSubmit={onSubmit}>
-      <label>Name:</label>
-      <input tape="text" onChange={e => setName(e.target.value)}></input>
+      <Label>Name:</Label>
+      <Input tape="text" onChange={e => setName(e.target.value)}></Input>
 
-      <label>phone number</label>
-      <input tape="text" onChange={e => setNumber(e.target.value)}></input>
-      <button type="submit">Submit </button>
+      <Label>phone number</Label>
+      <Input tape="text" onChange={e => setNumber(e.target.value)}></Input>
+      <ButtonStyled type="submit">Submit </ButtonStyled>
     </form>
   );
 }

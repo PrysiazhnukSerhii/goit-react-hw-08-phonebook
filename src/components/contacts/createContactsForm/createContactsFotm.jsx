@@ -1,13 +1,6 @@
 import styled from '@emotion/styled';
 import Form from 'react-bootstrap/Form';
 
-export const Container = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-
-  width: 400px;
-`;
-
 export const Input = styled(Form.Control)``;
 
 export const Label = styled(Form.Label)`
@@ -31,12 +24,9 @@ export const ButtonStyled = styled.button`
   border-radius: 4px;
   letter-spacing: 0.06em;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #2196f3;
 
-  border-style: solid;
-  border-color: #2196f3;
-  border-width: 3px;
-
+  border: none;
   cursor: pointer;
 
   &:hover {

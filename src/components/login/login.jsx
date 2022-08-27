@@ -20,7 +20,7 @@ export function Login() {
         <Input
           onChange={e => setEmail(e.target.value)}
           tape="email"
-          placeholder="Enter email"
+          placeholder="Email"
         ></Input>
 
         <Label>Password:</Label>
