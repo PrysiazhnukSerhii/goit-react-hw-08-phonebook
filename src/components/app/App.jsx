@@ -1,9 +1,10 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Contacts } from '../contacts/contacts';
 import { Register } from '../register/register';
 import { Login } from '../login/login';
-import { NotFound } from '../notFound/notFound';
 import { Container } from './app.styled';
+import PrivatRoutes from '../privatRoutes';
+import PublicRoutes from '../publicRouts';
 
 import { AppBar } from '../appBar/appBar';
 
@@ -13,11 +14,16 @@ export const App = () => {
       <h1>Міняйся або здохни сука!!!</h1>
       <AppBar />
       <Routes>
-        {/* <Route path="/" element={<>заповнить</>} /> */}
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="*" element={<NotFound />} />
+        <Route element={<PublicRoutes />}>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+
+        <Route element={<PrivatRoutes />}>
+          <Route path="/contacts" element={<Contacts />} />
+        </Route>
+
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Container>
   );

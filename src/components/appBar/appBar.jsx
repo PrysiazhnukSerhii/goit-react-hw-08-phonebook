@@ -1,20 +1,18 @@
-import { LogOut } from '../logOut/logOut';
 import { Nav, StyledLink, Container } from './appBar.styled';
 import { useSelector } from 'react-redux';
+import { UserMenu } from '../userMenu/userMenu';
 
 // ------------------переписати показ силлок при вході і виході--------
 
 export function AppBar() {
   let isLoggedIn = useSelector(state => state.userInformation.isLoggedIn);
 
-  console.log(isLoggedIn);
   return (
     <>
       <Nav>
         {isLoggedIn ? (
           <>
-            <LogOut />
-            <StyledLink to="/contacts">Contacts</StyledLink>
+            <UserMenu />
           </>
         ) : (
           <Container>

@@ -31,9 +31,12 @@ export const ButtonStyled = styled.button`
   border-radius: 4px;
   letter-spacing: 0.06em;
   color: #ffffff;
-  background-color: #2196f3;
+  background-color: rgba(0, 0, 0, 0);
 
-  border: none;
+  border-style: solid;
+  border-color: #2196f3;
+  border-width: 3px;
+
   cursor: pointer;
 
   &:hover {

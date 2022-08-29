@@ -57,6 +57,7 @@ export default userSlice.reducer;
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['token'],
 };
 // whitelist: ['token']
 export const persistedReducer = persistReducer(

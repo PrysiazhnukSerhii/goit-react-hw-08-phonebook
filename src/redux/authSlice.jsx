@@ -38,11 +38,18 @@ export const authApi = createApi({
         method: 'POST',
       }),
     }),
+    getUserInformation: builder.query({
+      query: () => `/users/current`,
+    }),
   }),
 });
 
-export const { useSignUpUserMutation, useLoginMutation, useLogOutMutation } =
-  authApi;
+export const {
+  useSignUpUserMutation,
+  useLoginMutation,
+  useLogOutMutation,
+  useGetUserInformationQuery,
+} = authApi;
 
 // 32 минута 52 сек
 

@@ -2,18 +2,14 @@ import { useGetContactsQuery } from '../../../redux/contactsSlise';
 import { ContactsItem } from '../contactsItem/contactsItem';
 
 export function ContactsList() {
-  const { data } = useGetContactsQuery();
-  // debugger;
+  const data = useGetContactsQuery();
 
-  // console.log(eee);
-  console.log(data);
-
-  if (!data) {
+  if (!data.data) {
     return;
   }
   return (
     <ul>
-      {data.map(contact => {
+      {data.data.map(contact => {
         return <ContactsItem key={contact.id} contact={contact} />;
       })}
     </ul>
