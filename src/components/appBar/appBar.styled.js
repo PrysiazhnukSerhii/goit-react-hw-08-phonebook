@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-import Button from 'react-bootstrap/Button';
-
 export const Nav = styled.nav`
   display: flex;
   margin-bottom: 15px;

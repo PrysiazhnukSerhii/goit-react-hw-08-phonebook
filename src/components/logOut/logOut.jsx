@@ -2,7 +2,6 @@ import { Button } from './logOut.styled';
 import { useLogOutMutation } from '../../redux/authSlice';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { authApi } from '../../redux/authSlice';
 import { contactsApi } from '../../redux/contactsSlise';
 
 export function LogOut() {
@@ -14,8 +13,6 @@ export function LogOut() {
   const onClick = async () => {
     await logOut(tocen);
 
-    // console.log(authApi.util);
-    // dispatch(authApi.util.resetApiState());
     dispatch(contactsApi.util.resetApiState());
   };
 
@@ -25,5 +22,3 @@ export function LogOut() {
     </Button>
   );
 }
-
-// не розлогінює пише треба залогінитись дічь якась

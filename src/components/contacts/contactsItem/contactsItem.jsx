@@ -8,7 +8,7 @@ export function ContactsItem({ contact }) {
   return (
     <li>
       <p>
-        {name} : {number}{' '}
+        {name} : {number}
       </p>
       <button
         onClick={async () => {

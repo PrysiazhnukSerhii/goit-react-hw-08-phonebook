@@ -8,6 +8,12 @@ export const Label = styled(Form.Label)`
   font-weight: 600;
 `;
 
+export const Header = styled.h2`
+  color: white;
+  font-weight: 500;
+  font-size: 23px;
+`;
+
 export const ButtonStyled = styled.button`
   display: block;
 

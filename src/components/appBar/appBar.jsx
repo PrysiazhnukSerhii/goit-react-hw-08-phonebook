@@ -3,16 +3,19 @@ import { useSelector } from 'react-redux';
 import { UserMenu } from '../userMenu/userMenu';
 
 // ------------------переписати показ силлок при вході і виході--------
+import { useGetUserInformationQuery } from '../../redux/authSlice';
 
 export function AppBar() {
   let isLoggedIn = useSelector(state => state.userInformation.isLoggedIn);
 
+  const { data } = useGetUserInformationQuery();
+  console.log(data);
   return (
     <>
       <Nav>
         {isLoggedIn ? (
           <>
-            <UserMenu />
+            <UserMenu userInformation={data} />
           </>
         ) : (
           <Container>

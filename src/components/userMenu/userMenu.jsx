@@ -1,17 +1,17 @@
 import { LogOut } from '../logOut/logOut';
 import { Heder, Conteiner, NameStyled } from './userMenu.styled';
-import { useGetUserInformationQuery } from '../../redux/authSlice';
+import { FaRegAddressBook } from 'react-icons/fa';
 
-export function UserMenu() {
-  const { data } = useGetUserInformationQuery();
-
-  console.log(data);
-
+export function UserMenu({ userInformation }) {
+  const { email } = userInformation;
+  console.log(email);
   return (
     <>
-      <Heder>Phone Book</Heder>
+      <Heder>
+        Phone Book <FaRegAddressBook />
+      </Heder>
       <Conteiner>
-        <NameStyled>user name</NameStyled>
+        <NameStyled>{email}</NameStyled>
         <LogOut />
       </Conteiner>
     </>

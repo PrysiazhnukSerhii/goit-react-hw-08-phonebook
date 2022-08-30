@@ -11,7 +11,6 @@ import { AppBar } from '../appBar/appBar';
 export const App = () => {
   return (
     <Container>
-      <h1>Міняйся або здохни сука!!!</h1>
       <AppBar />
       <Routes>
         <Route element={<PublicRoutes />}>
