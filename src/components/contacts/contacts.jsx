@@ -1,7 +1,13 @@
 import { CreateContactsForm } from './createContactsForm/createContactsForm';
 import { ContactsList } from './contactsList/contactsList';
 import { Filter } from './filter/filter';
-import { Container, Box } from './contacts.styled';
+import {
+  Container,
+  ContainerForm,
+  Box,
+  ContainerContact,
+  HeaderName,
+} from './contacts.styled';
 import { useState } from 'react';
 import { useGetContactsQuery } from '../../redux/contactsSlise';
 
@@ -23,15 +29,21 @@ export function Contacts() {
 
   return (
     <Container>
-      <Box>
+      <ContainerForm>
         <Filter serchName={setSerchName} />
         <CreateContactsForm />
-      </Box>
-      {contacts.length > 0 ? (
-        <ContactsList contacts={contacts} />
-      ) : (
-        <p>Create new contact</p>
-      )}
+      </ContainerForm>
+      <ContainerContact>
+        <Box>
+          <HeaderName>Name</HeaderName>
+          <p>Number</p>
+        </Box>
+        {contacts.length > 0 ? (
+          <ContactsList contacts={contacts} />
+        ) : (
+          <p>Create new contact</p>
+        )}
+      </ContainerContact>
     </Container>
   );
 }

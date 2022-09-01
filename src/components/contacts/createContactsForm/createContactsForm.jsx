@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { useCreateContactMutation } from '../../../redux/contactsSlise';
-import { ButtonStyled, Label, Input, Header } from './createContactsFotm';
+import {
+  ButtonStyled,
+  Label,
+  Input,
+  Header,
+} from './createContactsForm.styled';
 
 export function CreateContactsForm() {
   const [name, setName] = useState('');
