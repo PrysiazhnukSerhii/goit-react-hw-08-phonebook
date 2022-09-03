@@ -18,8 +18,7 @@ export function ContactsItem({ contact }) {
 
   const [openUpdate, setOpenUpdate] = useState(false);
 
-  const [deletContact, { isLoading, data, isSuccess }] =
-    useDeletContactMutation();
+  const [deletContact, { isLoading, data }] = useDeletContactMutation();
 
   let turnONspiner = isLoading || Boolean(data);
 

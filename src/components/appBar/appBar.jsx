@@ -1,6 +1,7 @@
-import { Nav, StyledLink, Container } from './appBar.styled';
+import { Nav, StyledLink, Container, Heder } from './appBar.styled';
 import { useSelector } from 'react-redux';
 import { UserMenu } from '../userMenu/userMenu';
+import { FaRegAddressBook } from 'react-icons/fa';
 
 // ------------------переписати показ силлок при вході і виході--------
 
@@ -16,6 +17,9 @@ export function AppBar() {
           </>
         ) : (
           <Container>
+            <Heder>
+              Phone Book <FaRegAddressBook />
+            </Heder>
             <StyledLink to="/login">Login</StyledLink>
             <StyledLink to="/register">Register</StyledLink>
           </Container>

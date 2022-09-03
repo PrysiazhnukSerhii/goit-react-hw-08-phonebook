@@ -12,8 +12,15 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  width: 400px;
+  width: 420px;
 `;
+
+export const Heder = styled.h2`
+  display: flex;
+  align-items: center;
+  color: white;
+`;
+
 export const StyledLink = styled(NavLink)`
   display: block;
   padding: 0;
