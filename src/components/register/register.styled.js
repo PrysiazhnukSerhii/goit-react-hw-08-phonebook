@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  width: 400px;
+  width: 420px;
 `;
 
 export const Input = styled(Form.Control)``;

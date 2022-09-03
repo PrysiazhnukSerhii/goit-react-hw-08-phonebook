@@ -1,25 +1,73 @@
 import { useDeletContactMutation } from '../../../redux/contactsSlise';
-import { Li, Paragraph, Span, ButtonStyled } from './constactsItem.styled';
+import {
+  Li,
+  Paragraph,
+  Span,
+  Button,
+  ButtonDelet,
+} from './constactsItem.styled';
 import { AiFillDelete } from 'react-icons/ai';
+import { ImPencil } from 'react-icons/im';
+import { useState } from 'react';
+import { ContactsUpdateForm } from '../contactsUpdateForm/contactsUpdateForm';
+import { RotatingLines } from 'react-loader-spinner';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function ContactsItem({ contact }) {
   const { name, number, id } = contact;
 
-  const [updatePost, { isLoading }] = useDeletContactMutation();
+  const [openUpdate, setOpenUpdate] = useState(false);
 
+  const [deletContact, { isLoading, data, isSuccess }] =
+    useDeletContactMutation();
+
+  let turnONspiner = isLoading || Boolean(data);
+
+  console.log();
   return (
     <Li>
-      <Paragraph>
-        <Span> {name} :</Span> {number}
-      </Paragraph>
-      <ButtonStyled
-        onClick={async () => {
-          await updatePost(id);
-        }}
-        disabled={isLoading}
-      >
-        <AiFillDelete />
-      </ButtonStyled>
+      {!openUpdate ? (
+        <>
+          {' '}
+          <Paragraph>
+            <Span> {name} :</Span> {number}
+          </Paragraph>
+          <Button
+            onClick={e => {
+              setOpenUpdate(true);
+            }}
+            disabled={turnONspiner}
+          >
+            <ImPencil />
+          </Button>
+          <ButtonDelet
+            onClick={async () => {
+              await deletContact(id);
+              Notify.failure(`Deleted contact: ${name}`);
+            }}
+            disabled={turnONspiner}
+          >
+            {turnONspiner ? (
+              <RotatingLines
+                strokeColor="#1cdb0b"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="20"
+                visible={true}
+              />
+            ) : (
+              <AiFillDelete />
+            )}
+          </ButtonDelet>
+        </>
+      ) : (
+        <ContactsUpdateForm
+          openUpdate={setOpenUpdate}
+          currentName={name}
+          currentNumber={number}
+          id={id}
+        />
+      )}
     </Li>
   );
 }

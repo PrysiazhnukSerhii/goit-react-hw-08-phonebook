@@ -29,3 +29,11 @@ export const Box = styled.div`
 export const HeaderName = styled.p`
   width: 230px;
 `;
+
+export const Paragraph = styled.p`
+  padding-left: 15px;
+
+  font-weight: 400;
+  font-size: 18px;
+  color: white;
+`;

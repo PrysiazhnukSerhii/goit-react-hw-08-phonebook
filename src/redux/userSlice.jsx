@@ -48,8 +48,6 @@ export const userSlice = createSlice({
     builder.addMatcher(
       authApi.endpoints.getUserInformation.matchFulfilled,
       (state, { payload }) => {
-        console.log(state.user);
-        console.log(payload);
         state.user = payload.user;
         state.isLoggedIn = true;
       }

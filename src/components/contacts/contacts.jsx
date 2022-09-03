@@ -7,6 +7,7 @@ import {
   Box,
   ContainerContact,
   HeaderName,
+  Paragraph,
 } from './contacts.styled';
 import { useState } from 'react';
 import { useGetContactsQuery } from '../../redux/contactsSlise';
@@ -41,7 +42,7 @@ export function Contacts() {
         {contacts.length > 0 ? (
           <ContactsList contacts={contacts} />
         ) : (
-          <p>Create new contact</p>
+          <Paragraph>You don't have contacts, create new contact</Paragraph>
         )}
       </ContainerContact>
     </Container>

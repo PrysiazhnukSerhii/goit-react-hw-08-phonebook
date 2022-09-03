@@ -1,47 +1,36 @@
 import styled from '@emotion/styled';
+import Form from 'react-bootstrap/Form';
 
-export const Li = styled.li`
+export const Input = styled(Form.Control)``;
+
+// переписати ці говно стилі на общі
+export const FormStyled = styled.form`
   display: flex;
-
-  margin-bottom: 4px;
-
-  font-weight: 400;
-  font-size: 18px;
-  color: white;
-`;
-
-export const Paragraph = styled.p`
-  display: flex;
-  // justify-content: space-between;
-
+  height: 32px;
   padding-left: 15px;
-  padding-right: 15px;
-  width: 100%;
+
+  & :last-child {
+    margin-left: 15px;
+  }
 `;
 
-export const Span = styled.span`
-  width: 230px;
+export const ConteinerInput = styled.div`
+  // width: 230px;
 `;
 
-export const ContainerContact = styled.div`
-  width: 100%;
-  padding-left: 18px;
-`;
-
-export const Button = styled.button`
+export const ButtonSave = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
 
   margin-left: auto;
-
   padding: 0;
 
-  width: 35px;
+  width: 32px;
   height: 32px;
 
   border-radius: 4px;
-  color: #ffffff;
+  color: #1dcc5a;
   background-color: rgba(0, 0, 0, 0);
 
   border-style: solid;
@@ -55,20 +44,19 @@ export const Button = styled.button`
   }
 `;
 
-export const ButtonDelet = styled.button`
+export const ButtonClose = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
 
   margin-left: 3px;
-
   padding: 0;
 
-  width: 35px;
+  width: 32px;
   height: 32px;
 
   border-radius: 4px;
-  color: #ffffff;
+  color: #f25941;
   background-color: rgba(0, 0, 0, 0);
 
   border-style: solid;
