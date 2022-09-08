@@ -28,7 +28,7 @@ export const ContainerContact = styled.div`
   padding-left: 18px;
 `;
 
-export const Button = styled.button`
+export const ButtonOpenUpdateForm = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -15,7 +15,7 @@ export function CreateContactsForm() {
 
   const [createContact, { isLoading }] = useCreateContactMutation();
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
     e.currentTarget.reset();
 
@@ -23,7 +23,13 @@ export function CreateContactsForm() {
       return Notify.failure(`You dont written name or number`);
     }
 
-    createContact({ name, number });
+    try {
+      await createContact({ name, number });
+      Notify.success(`Create new contact:"${name}"`);
+    } catch (error) {
+      console.log(error);
+    }
+
     setName('');
     setNumber('');
   };
@@ -37,6 +43,8 @@ export function CreateContactsForm() {
         placeholder="Name"
         value={name}
         onChange={e => setName(e.target.value)}
+        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
       ></Input>
 
       <Label>Phone number</Label>
@@ -45,6 +53,9 @@ export function CreateContactsForm() {
         placeholder="Phone number"
         value={number}
         onChange={e => setNumber(e.target.value)}
+        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        required
       ></Input>
       <ButtonStyled type="submit" disabled={isLoading}>
         {isLoading ? (

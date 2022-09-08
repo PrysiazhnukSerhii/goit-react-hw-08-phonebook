@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
 
-  width: 420px;
+  width: 412px;
 `;
 
 export const Input = styled(Form.Control)``;
@@ -43,3 +43,4 @@ export const ButtonStyled = styled.button`
     background-color: #0d7bd1;
   }
 `;
+

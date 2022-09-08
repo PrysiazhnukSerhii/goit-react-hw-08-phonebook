@@ -14,10 +14,6 @@ export const FormStyled = styled.form`
   }
 `;
 
-export const ConteinerInput = styled.div`
-  // width: 230px;
-`;
-
 export const ButtonSave = styled.button`
   display: flex;
   align-items: center;

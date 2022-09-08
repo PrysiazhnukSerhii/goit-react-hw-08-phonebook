@@ -18,6 +18,8 @@ export const Container = styled.div`
 export const Heder = styled.h2`
   display: flex;
   align-items: center;
+  font-size: 28px;
+
   color: white;
 `;
 

@@ -3,7 +3,7 @@ import {
   Li,
   Paragraph,
   Span,
-  Button,
+  ButtonOpenUpdateForm,
   ButtonDelet,
 } from './constactsItem.styled';
 import { AiFillDelete } from 'react-icons/ai';
@@ -31,14 +31,14 @@ export function ContactsItem({ contact }) {
           <Paragraph>
             <Span> {name} :</Span> {number}
           </Paragraph>
-          <Button
+          <ButtonOpenUpdateForm
             onClick={e => {
               setOpenUpdate(true);
             }}
             disabled={turnONspiner}
           >
             <ImPencil />
-          </Button>
+          </ButtonOpenUpdateForm>
           <ButtonDelet
             onClick={async () => {
               await deletContact(id);
