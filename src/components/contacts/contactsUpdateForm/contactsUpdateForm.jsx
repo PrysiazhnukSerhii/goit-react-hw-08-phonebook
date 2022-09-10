@@ -7,10 +7,11 @@ import { BsFillCheckCircleFill, BsXCircleFill } from 'react-icons/bs';
 
 import {
   FormStyled,
-  ButtonSave,
-  ButtonClose,
-  Input,
+  buttonClose,
+  buttonSave,
 } from './contactsUpdateForm.styled';
+
+import { Input } from '../../../components.styled/form.styled';
 
 export function ContactsUpdateForm({
   openUpdate,
@@ -57,7 +58,12 @@ export function ContactsUpdateForm({
         />
       </FormStyled>
 
-      <ButtonSave type="submit" form="update" disabled={isLoading}>
+      <button
+        type="submit"
+        form="update"
+        className={buttonSave}
+        disabled={isLoading}
+      >
         {isLoading ? (
           <RotatingLines
             strokeColor="#1cdb0b"
@@ -69,15 +75,16 @@ export function ContactsUpdateForm({
         ) : (
           <BsFillCheckCircleFill />
         )}
-      </ButtonSave>
-      <ButtonClose
+      </button>
+      <button
+        className={buttonClose}
         onClick={() => {
           openUpdate(false);
         }}
         disabled={isLoading}
       >
         <BsXCircleFill />
-      </ButtonClose>
+      </button>
     </>
   );
 }

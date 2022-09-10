@@ -1,4 +1,7 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/css';
+
+import { smolButton } from '../../../components.styled/button.styled';
 
 export const Li = styled.li`
   display: flex;
@@ -12,7 +15,6 @@ export const Li = styled.li`
 
 export const Paragraph = styled.p`
   display: flex;
-  // justify-content: space-between;
 
   padding-left: 15px;
   padding-right: 15px;
@@ -28,56 +30,14 @@ export const ContainerContact = styled.div`
   padding-left: 18px;
 `;
 
-export const ButtonOpenUpdateForm = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const buttonOpenUpdateForm = css`
+  ${smolButton};
 
   margin-left: auto;
-
-  padding: 0;
-
-  width: 35px;
-  height: 32px;
-
-  border-radius: 4px;
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0);
-
-  border-style: solid;
-  border-color: #2196f3;
-  border-width: 3px;
-
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0d7bd1;
-  }
 `;
 
-export const ButtonDelet = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const buttonDelet = css`
+  ${smolButton};
 
   margin-left: 3px;
-
-  padding: 0;
-
-  width: 35px;
-  height: 32px;
-
-  border-radius: 4px;
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0);
-
-  border-style: solid;
-  border-color: #2196f3;
-  border-width: 3px;
-
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0d7bd1;
-  }
 `;

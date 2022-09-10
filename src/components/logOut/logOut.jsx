@@ -1,8 +1,8 @@
-import { useLogOutMutation } from '../../redux/authSlice';
-import { Button } from './logOut.styled';
-
 import { useSelector, useDispatch } from 'react-redux';
+import { useLogOutMutation } from '../../redux/authSlice';
 import { contactsApi } from '../../redux/contactsSlise';
+
+import { buttonLogOut } from './logOut.styled';
 
 export function LogOut() {
   const tocen = useSelector(state => state.userInformation.token);
@@ -17,8 +17,8 @@ export function LogOut() {
   };
 
   return (
-    <Button type="button" onClick={onClick}>
+    <button type="button" className={buttonLogOut} onClick={onClick}>
       LogOut
-    </Button>
+    </button>
   );
 }

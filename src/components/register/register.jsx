@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useSignUpUserMutation } from '../../redux/authSlice';
-import { Input, Label, ButtonStyled, Container } from './register.styled';
+
+import { buttonSubmit, Container } from './register.styled';
+import { Input, Label } from '../../components.styled/form.styled';
 
 export function Register() {
   const [name, setName] = useState('');
@@ -12,10 +14,6 @@ export function Register() {
   const onSubmit = e => {
     e.preventDefault();
 
-    if (name.length === 0 || email.length === 0 || password.length === 0) {
-      return alert('You did not fill in all fields');
-    }
-
     singUpUSer({
       name,
       email,
@@ -26,12 +24,7 @@ export function Register() {
           'Maybe this e-mail address or name exists. Enter a different email address or name'
         );
       }
-      console.log(e.error);
     });
-
-    // if (isError) {
-    //   return alert();
-    // }
   };
 
   return (
@@ -42,6 +35,7 @@ export function Register() {
           tape="text"
           onChange={e => setName(e.target.value)}
           placeholder="Name"
+          required
         ></Input>
         <Label>Email:</Label>
         <Input
@@ -50,6 +44,7 @@ export function Register() {
           placeholder="Email"
           pattern="[A-Za-z0-9]+@[a-z]+\.[a-z]+"
           title="Email format is incorrect. Example: name@mail.com"
+          required
         ></Input>
         <Label>Password:</Label>
         <Input
@@ -58,15 +53,12 @@ export function Register() {
           placeholder="Password"
           pattern="(?=.*\d)(?=.*[A-Za-z]).{5,}"
           title="Must contain at least one number, one letter and at least 5 or more characters"
+          required
         ></Input>
-        <ButtonStyled type="submit">Submit </ButtonStyled>
+        <button type="submit" className={buttonSubmit}>
+          Submit{' '}
+        </button>
       </form>
     </Container>
   );
 }
-
-// зробити перенаправлення на другу сторінку
-
-// звязати лейбл з рядком
-// подивитись десь повинно бути щоб на кожний інпут не ставити слухач  а на форму зразу, якось до іменні повинно підвязуватись
-// ресет інпутів зробити

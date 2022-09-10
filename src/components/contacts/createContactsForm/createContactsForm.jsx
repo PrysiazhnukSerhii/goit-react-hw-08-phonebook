@@ -4,12 +4,8 @@ import { useCreateContactMutation } from '../../../redux/contactsSlise';
 import { RotatingLines } from 'react-loader-spinner';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import {
-  ButtonStyled,
-  Label,
-  Input,
-  Header,
-} from './createContactsForm.styled';
+import { buttonSubmit, Header } from './createContactsForm.styled';
+import { Label, Input } from '../../../components.styled/form.styled';
 
 export function CreateContactsForm() {
   const [name, setName] = useState('');
@@ -54,6 +50,7 @@ export function CreateContactsForm() {
         disabled={isLoading}
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        required
       ></Input>
 
       <Label>Phone number</Label>
@@ -67,7 +64,7 @@ export function CreateContactsForm() {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       ></Input>
-      <ButtonStyled type="submit" disabled={isLoading}>
+      <button type="submit" className={buttonSubmit} disabled={isLoading}>
         {isLoading ? (
           <>
             <RotatingLines
@@ -82,7 +79,7 @@ export function CreateContactsForm() {
         ) : (
           'Add contact'
         )}
-      </ButtonStyled>
+      </button>
     </form>
   );
 }

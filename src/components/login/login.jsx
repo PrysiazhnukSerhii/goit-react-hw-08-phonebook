@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useLoginMutation } from '../../redux/authSlice';
-import { Container, Input, Label, ButtonStyled } from './login.styled';
+
+import { Container, loginButton } from './login.styled';
+import { Input, Label } from '../../components.styled/form.styled';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -10,7 +12,11 @@ export function Login() {
 
   const onSubmit = e => {
     e.preventDefault();
-    login({ email, password });
+    login({ email, password }).then(e => {
+      if (e.error) {
+        return alert(`This user:${email} was not found `);
+      }
+    });
   };
 
   return (
@@ -21,6 +27,7 @@ export function Login() {
           onChange={e => setEmail(e.target.value)}
           tape="email"
           placeholder="Email"
+          required
         ></Input>
 
         <Label>Password:</Label>
@@ -28,12 +35,13 @@ export function Login() {
           onChange={e => setPassword(e.target.value)}
           tape="password"
           placeholder="Password"
+          required
         ></Input>
 
-        <ButtonStyled type="submit">Enter</ButtonStyled>
+        <button type="submit" className={loginButton}>
+          Enter
+        </button>
       </form>
-      <p>ferem@gmail.com</p>
-      <p>26012010</p>
     </Container>
   );
 }

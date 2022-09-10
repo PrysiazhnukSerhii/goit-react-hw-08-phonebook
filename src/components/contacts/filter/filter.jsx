@@ -1,4 +1,4 @@
-import { Input, Label } from './filter.styled';
+import { Input, Label } from '../../../components.styled/form.styled';
 
 export function Filter({ serchName }) {
   return (

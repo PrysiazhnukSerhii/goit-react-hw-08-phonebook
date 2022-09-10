@@ -1,8 +1,10 @@
+import { useGetUserInformationQuery } from '../../redux/authSlice';
+
 import { LogOut } from '../logOut/logOut';
-import { Heder, Conteiner, NameStyled } from './userMenu.styled';
+
 import { FaRegAddressBook } from 'react-icons/fa';
 
-import { useGetUserInformationQuery } from '../../redux/authSlice';
+import { Heder, Conteiner, NameStyled } from './userMenu.styled';
 
 export function UserMenu() {
   const { data } = useGetUserInformationQuery();

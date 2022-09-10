@@ -12,8 +12,8 @@ import {
   Li,
   Paragraph,
   Span,
-  ButtonOpenUpdateForm,
-  ButtonDelet,
+  buttonOpenUpdateForm,
+  buttonDelet,
 } from './constactsItem.styled';
 
 export function ContactsItem({ contact }) {
@@ -25,7 +25,6 @@ export function ContactsItem({ contact }) {
 
   let turnONspiner = isLoading || Boolean(data);
 
-  console.log();
   return (
     <Li>
       {!openUpdate ? (
@@ -34,15 +33,17 @@ export function ContactsItem({ contact }) {
           <Paragraph>
             <Span> {name} :</Span> {number}
           </Paragraph>
-          <ButtonOpenUpdateForm
+          <button
             onClick={e => {
               setOpenUpdate(true);
             }}
+            className={buttonOpenUpdateForm}
             disabled={turnONspiner}
           >
             <ImPencil />
-          </ButtonOpenUpdateForm>
-          <ButtonDelet
+          </button>
+          <button
+            className={buttonDelet}
             onClick={async () => {
               await deletContact(id);
               Notify.failure(`Deleted contact: ${name}`);
@@ -60,7 +61,7 @@ export function ContactsItem({ contact }) {
             ) : (
               <AiFillDelete />
             )}
-          </ButtonDelet>
+          </button>
         </>
       ) : (
         <ContactsUpdateForm
