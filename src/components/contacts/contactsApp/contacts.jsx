@@ -1,6 +1,10 @@
-import { CreateContactsForm } from './createContactsForm/createContactsForm';
-import { ContactsList } from './contactsList/contactsList';
-import { Filter } from './filter/filter';
+import { useState } from 'react';
+import { useGetContactsQuery } from '../../../redux/contactsSlise';
+
+import { CreateContactsForm } from '../createContactsForm/createContactsForm';
+import { ContactsList } from '../contactsList/contactsList';
+import { Filter } from '../filter/filter';
+
 import {
   Container,
   ContainerForm,
@@ -9,8 +13,6 @@ import {
   HeaderName,
   Paragraph,
 } from './contacts.styled';
-import { useState } from 'react';
-import { useGetContactsQuery } from '../../redux/contactsSlise';
 
 export function Contacts() {
   const [serchName, setSerchName] = useState('');
@@ -41,13 +43,12 @@ export function Contacts() {
         </Box>
         {contacts.length > 0 ? (
           <ContactsList contacts={contacts} />
-        ) : (
+        ) : serchName.length === 0 ? (
           <Paragraph>You don't have contacts, create new contact</Paragraph>
+        ) : (
+          <Paragraph> Don't found contact with this name</Paragraph>
         )}
       </ContainerContact>
     </Container>
   );
 }
-
-// feremi2@gmail.com
-// 123454321

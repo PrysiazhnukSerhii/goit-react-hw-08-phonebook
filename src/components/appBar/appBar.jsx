@@ -1,9 +1,10 @@
-import { Nav, StyledLink, Container, Heder } from './appBar.styled';
 import { useSelector } from 'react-redux';
+
 import { UserMenu } from '../userMenu/userMenu';
+
 import { FaRegAddressBook } from 'react-icons/fa';
 
-// ------------------переписати показ силлок при вході і виході--------
+import { Nav, StyledLink, Container, Heder } from './appBar.styled';
 
 export function AppBar() {
   let token = useSelector(state => state.userInformation.token);
@@ -28,9 +29,3 @@ export function AppBar() {
     </>
   );
 }
-
-// створити AppBar:
-//             -Navigation - навигація по сайту
-//             - AuthNav - аутендифікація
-//              -UserMenu - лог аут і сам юзер
-// ці три це окремі три компоненти в які там уже всунути лінки

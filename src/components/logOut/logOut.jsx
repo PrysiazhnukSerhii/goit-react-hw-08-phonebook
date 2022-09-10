@@ -1,5 +1,5 @@
-import { Button } from './logOut.styled';
 import { useLogOutMutation } from '../../redux/authSlice';
+import { Button } from './logOut.styled';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { contactsApi } from '../../redux/contactsSlise';

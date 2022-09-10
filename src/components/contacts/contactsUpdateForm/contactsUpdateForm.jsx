@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { useUpdateContactMutation } from '../../../redux/contactsSlise';
+
+import { RotatingLines } from 'react-loader-spinner';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { BsFillCheckCircleFill, BsXCircleFill } from 'react-icons/bs';
+
 import {
   FormStyled,
   ButtonSave,
   ButtonClose,
   Input,
 } from './contactsUpdateForm.styled';
-import { useUpdateContactMutation } from '../../../redux/contactsSlise';
-import { BsFillCheckCircleFill, BsXCircleFill } from 'react-icons/bs';
-import { RotatingLines } from 'react-loader-spinner';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function ContactsUpdateForm({
   openUpdate,
@@ -39,6 +41,7 @@ export function ContactsUpdateForm({
           type="text"
           value={name}
           onChange={e => setName(e.target.value)}
+          disabled={isLoading}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         />
@@ -47,6 +50,7 @@ export function ContactsUpdateForm({
           type="text"
           value={number}
           onChange={e => setNumber(e.target.value)}
+          disabled={isLoading}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required

@@ -12,14 +12,7 @@ const initialState = {
 export const userSlice = createSlice({
   name: 'userInformation',
   initialState,
-  reducers: {
-    // addUserInform(state, action) {
-    //   state.user = action.payload.user;
-    //   state.token = action.payload.token;
-    //   state.isLoggedIn = true;
-    //   console.log(action);
-    // },
-  },
+  reducers: {},
   extraReducers: builder => {
     builder.addMatcher(
       authApi.endpoints.signUpUser.matchFulfilled,
@@ -55,8 +48,6 @@ export const userSlice = createSlice({
   },
 });
 
-// export const {} = userSlice.actions;
-
 export default userSlice.reducer;
 
 //------------------------persist-----------
@@ -66,10 +57,8 @@ const persistConfig = {
   storage,
   whitelist: ['token'],
 };
-// whitelist: ['token']
+
 export const persistedReducer = persistReducer(
   persistConfig,
   userSlice.reducer
 );
-
-// коли заповнюю стейт може кразе щоб роспилчти в нього просто всі значення

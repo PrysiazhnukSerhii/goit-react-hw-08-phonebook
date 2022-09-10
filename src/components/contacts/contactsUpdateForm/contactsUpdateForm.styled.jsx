@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import Form from 'react-bootstrap/Form';
 
-export const Input = styled(Form.Control)``;
+export const Input = styled(Form.Control)`
+  // max-width: 300px;
+`;
 
 // переписати ці говно стилі на общі
 export const FormStyled = styled.form`

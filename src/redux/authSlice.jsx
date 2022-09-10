@@ -24,7 +24,6 @@ export const authApi = createApi({
     }),
     login: builder.mutation({
       query: userInformation => {
-        console.log(userInformation);
         return {
           url: `/users/login`,
           method: 'POST',
@@ -51,8 +50,3 @@ export const {
   useGetUserInformationQuery,
 } = authApi;
 
-// 32 минута 52 сек
-
-//ferem@gmail.com
-// Serhii Prysiazhniuk
-// 26012010

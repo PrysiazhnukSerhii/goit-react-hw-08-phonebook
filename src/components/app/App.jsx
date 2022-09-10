@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Contacts } from '../contacts/contacts';
+import { Contacts } from '../contacts/contactsApp/contacts';
 import { Register } from '../register/register';
 import { Login } from '../login/login';
 import { Container } from './app.styled';
@@ -29,11 +29,5 @@ export const App = () => {
 };
 
 // можна зробити щоб коли сохраняеться контакт не можна було писати в інпут нічого
-// зробити щоб коли входить то писало ласкаво просимо і імя
-// коли не дописав якесь поле при вході  вибивала ошибку
 
 // можна створити один фаіл на стилі для форм
-
-//перевірка  регістрації
-// зробить перевірку на меіл
-//перевірка пароля

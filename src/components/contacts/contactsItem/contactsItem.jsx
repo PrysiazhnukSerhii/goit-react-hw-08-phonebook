@@ -1,4 +1,13 @@
+import { useState } from 'react';
 import { useDeletContactMutation } from '../../../redux/contactsSlise';
+
+import { ContactsUpdateForm } from '../contactsUpdateForm/contactsUpdateForm';
+
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { RotatingLines } from 'react-loader-spinner';
+import { AiFillDelete } from 'react-icons/ai';
+import { ImPencil } from 'react-icons/im';
+
 import {
   Li,
   Paragraph,
@@ -6,12 +15,6 @@ import {
   ButtonOpenUpdateForm,
   ButtonDelet,
 } from './constactsItem.styled';
-import { AiFillDelete } from 'react-icons/ai';
-import { ImPencil } from 'react-icons/im';
-import { useState } from 'react';
-import { ContactsUpdateForm } from '../contactsUpdateForm/contactsUpdateForm';
-import { RotatingLines } from 'react-loader-spinner';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function ContactsItem({ contact }) {
   const { name, number, id } = contact;
