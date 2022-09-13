@@ -25,18 +25,19 @@ export function Login() {
         <Label>Email:</Label>
         <Input
           onChange={e => setEmail(e.target.value)}
-          tape="email"
+          type="email"
           placeholder="Email"
           required
-        ></Input>
+        />
 
         <Label>Password:</Label>
         <Input
           onChange={e => setPassword(e.target.value)}
-          tape="password"
+          type="password"
           placeholder="Password"
           required
-        ></Input>
+          
+        />
 
         <button type="submit" className={loginButton}>
           Enter

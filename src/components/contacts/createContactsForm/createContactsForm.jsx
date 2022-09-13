@@ -37,7 +37,7 @@ export function CreateContactsForm() {
       <Header>Add New Contact</Header>
       <Label>Name:</Label>
       <Input
-        tape="text"
+        type="text"
         placeholder="Name"
         value={name}
         onChange={e => {
@@ -51,11 +51,11 @@ export function CreateContactsForm() {
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
-      ></Input>
+      />
 
       <Label>Phone number</Label>
       <Input
-        tape="text"
+        type="text"
         placeholder="Phone number"
         value={number}
         onChange={e => setNumber(e.target.value)}
@@ -63,7 +63,7 @@ export function CreateContactsForm() {
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
-      ></Input>
+      />
       <button type="submit" className={buttonSubmit} disabled={isLoading}>
         {isLoading ? (
           <>

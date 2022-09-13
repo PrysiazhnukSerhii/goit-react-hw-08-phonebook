@@ -32,29 +32,29 @@ export function Register() {
       <form onSubmit={onSubmit}>
         <Label>Name:</Label>
         <Input
-          tape="text"
+          type="text"
           onChange={e => setName(e.target.value)}
           placeholder="Name"
           required
-        ></Input>
+        />
         <Label>Email:</Label>
         <Input
-          tape="text"
+          type="email"
           onChange={e => setEmail(e.target.value)}
           placeholder="Email"
           pattern="[A-Za-z0-9]+@[a-z]+\.[a-z]+"
           title="Email format is incorrect. Example: name@mail.com"
           required
-        ></Input>
+        />
         <Label>Password:</Label>
         <Input
-          tape="text"
+          type="password"
           onChange={e => setPassword(e.target.value)}
           placeholder="Password"
           pattern="(?=.*\d)(?=.*[A-Za-z]).{5,}"
           title="Must contain at least one number, one letter and at least 5 or more characters"
           required
-        ></Input>
+        />
         <button type="submit" className={buttonSubmit}>
           Submit{' '}
         </button>
